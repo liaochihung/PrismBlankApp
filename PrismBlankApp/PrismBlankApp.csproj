@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36BE8519-87BB-485B-A403-349AD50F46D8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PrismBlankApp</RootNamespace>
+    <AssemblyName>PrismBlankApp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Unity" Version="8.0.0.1909" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modules\ModuleBottom\PrismBlankApp.Modules.Bottom.csproj">
+      <Project>{c95a3f0c-0c32-48d4-99da-2da86b3a9c2c}</Project>
+      <Name>PrismBlankApp.Modules.Bottom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\ModuleContent\PrismBlankApp.Modules.Content.csproj">
+      <Project>{1a1d6f96-69c9-49cb-aa23-f59c65e6eb7a}</Project>
+      <Name>PrismBlankApp.Modules.Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\ModuleHeader\PrismBlankApp.Modules.Header.csproj">
+      <Project>{93609be5-8260-4a45-8864-4364150c8f47}</Project>
+      <Name>PrismBlankApp.Modules.Header</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\ModuleRight\PrismBlankApp.Modules.Right.csproj">
+      <Project>{e7eafee9-b7ef-4406-870d-790836e48c3a}</Project>
+      <Name>PrismBlankApp.Modules.Right</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PrismBlankApp.Core\PrismBlankApp.Core.csproj">
+      <Project>{1b92f294-accb-4ba0-8b4d-9d302a3e749b}</Project>
+      <Name>PrismBlankApp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\PrismBlankApp.Services.Interfaces\PrismBlankApp.Services.Interfaces.csproj">
+      <Project>{362f02fe-2a7e-462b-a879-428389af092e}</Project>
+      <Name>PrismBlankApp.Services.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\PrismBlankApp.Services\PrismBlankApp.Services.csproj">
+      <Project>{5262ba1a-6f0d-46a9-acd2-3f942c334538}</Project>
+      <Name>PrismBlankApp.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tests\PrismBlankApp.Modules.ModuleContent.Tests\PrismBlankApp.Modules.ModuleContent.Tests.csproj">
+      <Project>{5efb73f9-ace2-4220-a2c9-531a6d67206d}</Project>
+      <Name>PrismBlankApp.Modules.ModuleContent.Tests</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
