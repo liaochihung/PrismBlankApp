@@ -1,81 +1,99 @@
-﻿<Window
+﻿<mah:MetroWindow
     x:Class="PrismBlankApp.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:core="clr-namespace:PrismBlankApp.Core;assembly=PrismBlankApp.Core"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:prism="http://prismlibrary.com/"
     Title="{Binding Title}"
-    Width="640"
-    Height="480"
+    Width="1024"
+    Height="768"
     prism:ViewModelLocator.AutoWireViewModel="True"
     WindowStartupLocation="CenterScreen">
+    <!--  LeftWindow Commands  -->
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands x:Name="leftWindowCommandsRegion" />
+    </mah:MetroWindow.LeftWindowCommands>
 
-    <Grid x:Name="LayoutRoot">
+    <!--  RightWindow Commands  -->
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands x:Name="rightWindowCommandsRegion" />
+    </mah:MetroWindow.RightWindowCommands>
 
-        <DockPanel
+    <!--  Flyouts  -->
+    <mah:MetroWindow.Flyouts>
+        <mah:FlyoutsControl x:Name="flyoutsControlRegion" />
+    </mah:MetroWindow.Flyouts>
+
+    <mah:MetroContentControl>
+        <Grid x:Name="LayoutRoot">
+
+            <DockPanel
             Name="dockPanel"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             LastChildFill="True">
-            <Border
+                <Border
                 BorderBrush="Silver"
                 BorderThickness="1"
                 DockPanel.Dock="Top">
-                <StackPanel
+                    <StackPanel
                     Height="100"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     DockPanel.Dock="Top"
                     Orientation="Horizontal">
-                    <ContentControl
+                        <ContentControl
                         prism:RegionManager.RegionName="{x:Static core:RegionNames.HeaderRegion}"
                         BorderBrush="Silver"
                         BorderThickness="1" />
-                </StackPanel>
-            </Border>
+                    </StackPanel>
+                </Border>
 
-            <Border
+                <Border
                 BorderBrush="Silver"
                 BorderThickness="1"
                 DockPanel.Dock="Bottom">
-                <StackPanel
+                    <StackPanel
                     Height="100"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     DockPanel.Dock="Bottom"
                     Orientation="Horizontal">
-                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.BottomRegion}" />
-                </StackPanel>
-            </Border>
+                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.BottomRegion}" />
+                    </StackPanel>
+                </Border>
 
-            <Border
+                <Border
                 BorderBrush="Silver"
                 BorderThickness="1"
                 DockPanel.Dock="Right">
-                <ScrollViewer>
-                    <StackPanel
+                    <ScrollViewer>
+                        <StackPanel
                         Width="200"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Right"
                         Orientation="Vertical">
-                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.RightRegion}" />
-                    </StackPanel>
-                </ScrollViewer>
-            </Border>
+                            <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.RightRegion}" />
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
 
-            <Border BorderBrush="Silver" BorderThickness="1">
-                <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border BorderBrush="Silver" BorderThickness="1">
+                    <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                        <ContentControl
+                            <ContentControl
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
 
-                    </StackPanel>
-                </ScrollViewer>
-            </Border>
-        </DockPanel>
-    </Grid>
-</Window>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </DockPanel>
+        </Grid>
+    </mah:MetroContentControl>
+</mah:MetroWindow>

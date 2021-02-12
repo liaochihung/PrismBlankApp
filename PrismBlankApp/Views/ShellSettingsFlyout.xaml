@@ -1,0 +1,65 @@
+﻿<metro:Flyout
+    x:Class="PrismBlankApp.Views.ShellSettingsFlyout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:prism="http://prismlibrary.com/"
+    Width="250"
+    Header="main flyout"
+    Position="Right">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+        </Grid.RowDefinitions>
+
+        <!--  Theme  -->
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="0"
+            VerticalAlignment="Center"
+            Text="Shell Theme" />
+        <ComboBox
+            Grid.Row="0"
+            Grid.Column="2"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Path=ApplicationThemes, UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding Path=SelectedTheme, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!--  Accent  -->
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            VerticalAlignment="Center"
+            Text="Accent" />
+        <ComboBox
+            Grid.Row="2"
+            Grid.Column="2"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Path=AccentColors, UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding Path=SelectedAccentColor, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!--  Language  -->
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            VerticalAlignment="Center"
+            Text="Language" />
+        <ComboBox
+            Grid.Row="4"
+            Grid.Column="2"
+            DisplayMemberPath="DisplayName"
+            ItemsSource="{Binding Path=SupportedLanguages, UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding Path=SelectedLanguage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+    </Grid>
+</metro:Flyout>

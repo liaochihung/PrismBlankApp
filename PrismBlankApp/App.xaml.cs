@@ -4,6 +4,7 @@ using Prism.Modularity;
 using System.Windows;
 using PrismBlankApp.Modules.Bottom;
 using PrismBlankApp.Modules.Content;
+using PrismBlankApp.Modules.FlyoutTest;
 using PrismBlankApp.Modules.Header;
 using PrismBlankApp.Modules.Right;
 using PrismBlankApp.Services;
@@ -24,6 +25,9 @@ namespace PrismBlankApp
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IMessageService, MessageService>();
+
+            containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommandsProxy>();
+            containerRegistry.RegisterInstance<IFlyoutService>(Container.Resolve<FlyoutService>());
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
@@ -32,6 +36,7 @@ namespace PrismBlankApp
             moduleCatalog.AddModule<BottomInfoModule>();
             moduleCatalog.AddModule<MainContentModule>();
             moduleCatalog.AddModule<RightModule>();
+            moduleCatalog.AddModule<FlyoutModule>();
         }
     }
 }

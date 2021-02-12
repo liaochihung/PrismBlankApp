@@ -1,0 +1,21 @@
+﻿<StackPanel
+    x:Class="PrismBlankApp.Views.RightWindowCommandsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:service="clr-namespace:PrismBlankApp.Services;assembly=PrismBlankApp.Services"
+    xmlns:core="clr-namespace:PrismBlankApp.Core;assembly=PrismBlankApp.Core"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Button Margin="3" 
+            Command="{x:Static service:ApplicationCommands.ShowFlyoutCommand}"
+            CommandParameter="{x:Static core:RegionNames.FlyoutRegion}">
+        <StackPanel Margin="2" Orientation="Horizontal">
+            <Image Height="20" />
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="15"
+                FontWeight="Bold"
+                Text="Show" />
+        </StackPanel>
+    </Button>
+</StackPanel>

@@ -12,5 +12,9 @@ namespace PrismBlankApp.Core
         public const string ContentRegion = "ContentRegion";
         public const string RightRegion = "RightRegion";
         public const string BottomRegion = "BottomRegion";
+        public const string FlyoutRegion = "FlyoutRegion";
+        public const string DialogPopupRegion = "DialogPopupRegion";
+        public const string LeftWindowCommandsRegion = "LeftWindowCommandsRegion";
+        public const string RightWindowCommandsRegion = "RightWindowCommandsRegion";
     }
 }
