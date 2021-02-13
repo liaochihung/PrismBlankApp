@@ -2,6 +2,7 @@
 using Prism.Ioc;
 using Prism.Modularity;
 using System.Windows;
+using Microsoft.Extensions.Logging;
 using PrismBlankApp.Modules.Bottom;
 using PrismBlankApp.Modules.Content;
 using PrismBlankApp.Modules.FlyoutTest;
@@ -24,6 +25,19 @@ namespace PrismBlankApp
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            var config = new NLog.Config.LoggingConfiguration();
+            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = "log/file.txt" };
+            config.AddRule(NLog.LogLevel.Debug, NLog.LogLevel.Fatal, logfile);
+            NLog.LogManager.Configuration = config;
+
+            var factory = new NLog.Extensions.Logging.NLogLoggerFactory();
+            Microsoft.Extensions.Logging.ILogger logger = factory.CreateLogger("");
+
+            containerRegistry.RegisterInstance<Microsoft.Extensions.Logging.ILogger>(logger);
+
+            var log = Container.Resolve<Microsoft.Extensions.Logging.ILogger>();
+            log.LogInformation("Test in RegisterTypes");
+
             containerRegistry.RegisterSingleton<IMessageService, MessageService>();
 
             containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommandsProxy>();

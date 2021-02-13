@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using MahApps.Metro.Controls;
+using Microsoft.Extensions.Logging;
 using Prism.Regions;
 using PrismBlankApp.Core;
 
@@ -10,7 +13,7 @@ namespace PrismBlankApp.Views
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        public MainWindow(IRegionManager regionManager)
+        public MainWindow(IRegionManager regionManager, ILogger logger)
         {
             InitializeComponent();
 
@@ -24,6 +27,8 @@ namespace PrismBlankApp.Views
             regionManager.RegisterViewWithRegion(RegionNames.RightWindowCommandsRegion, typeof(RightWindowCommandsView));
             regionManager.RegisterViewWithRegion(RegionNames.LeftWindowCommandsRegion, typeof(LeftWindowCommandsView));
             regionManager.RegisterViewWithRegion(RegionNames.FlyoutRegion, typeof(ShellSettingsFlyout));
+
+            logger.LogInformation("MainWindow constructor.");
         }
 
         void SetRegionManager(IRegionManager regionManager, DependencyObject regionTarget, string regionName)
@@ -33,4 +38,5 @@ namespace PrismBlankApp.Views
         }
 
     }
+
 }
