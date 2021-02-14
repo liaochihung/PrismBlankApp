@@ -1,3 +1,7 @@
-Prism Blank Project Template
+# C# Prism Blank Project Template(A module based skelton)
 
-This is a project for learning purpose, based on prism v8.0.0.1909.
+# Introduction
+This project is based on prism v8.0.0.1909, with metro ui, log, multi language support.
+
+![screen](Screen.png)
+

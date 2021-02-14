@@ -10,6 +10,7 @@ using PrismBlankApp.Modules.Header;
 using PrismBlankApp.Modules.Right;
 using PrismBlankApp.Services;
 using PrismBlankApp.Services.Interfaces;
+using Unity.Lifetime;
 
 namespace PrismBlankApp
 {
@@ -25,6 +26,7 @@ namespace PrismBlankApp
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            #region Log
             var config = new NLog.Config.LoggingConfiguration();
             var logfile = new NLog.Targets.FileTarget("logfile") { FileName = "log/file.txt" };
             config.AddRule(NLog.LogLevel.Debug, NLog.LogLevel.Fatal, logfile);
@@ -37,6 +39,14 @@ namespace PrismBlankApp
 
             var log = Container.Resolve<Microsoft.Extensions.Logging.ILogger>();
             log.LogInformation("Test in RegisterTypes");
+            #endregion
+
+            //containerRegistry.RegisterInstance(typeof(ILocalizerService),
+            //    "LocalizerService",
+            //        new LocalizerService("zh-TW"),
+            //            new ContainerControlledLifetimeManager());
+            //containerRegistry.RegisterInstance<ILocalizerService, LocalizerService("zh-TW")>(new ContainerControlledLifetimeManager());
+            containerRegistry.RegisterSingleton<ILocalizerService, LocalizerService>();
 
             containerRegistry.RegisterSingleton<IMessageService, MessageService>();
 

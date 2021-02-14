@@ -64,6 +64,7 @@
     <Compile Include="IApplicationCommands.cs" />
     <Compile Include="IFlyoutService.cs" />
     <Compile Include="IFlyoutView.cs" />
+    <Compile Include="ILocalizerService.cs" />
     <Compile Include="IMessageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

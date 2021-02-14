@@ -2,8 +2,9 @@
     x:Class="PrismBlankApp.Views.LeftWindowCommandsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:prism="http://prismlibrary.com/"
     xmlns:core="clr-namespace:PrismBlankApp.Core;assembly=PrismBlankApp.Core"
+    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+    xmlns:prism="http://prismlibrary.com/"
     xmlns:service="clr-namespace:PrismBlankApp.Services;assembly=PrismBlankApp.Services"
     prism:ViewModelLocator.AutoWireViewModel="True">
     <Button
@@ -17,7 +18,7 @@
                 VerticalAlignment="Center"
                 FontSize="15"
                 FontWeight="Bold"
-                Text="Show" />
+                Text="{lex:Loc Sample}" />
         </StackPanel>
     </Button>
 </StackPanel>
